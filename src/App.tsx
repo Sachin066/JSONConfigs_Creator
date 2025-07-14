@@ -37,27 +37,30 @@ const App: React.FC = () => {
 
   const handleToggleSection = (key: string) => {
     const config = baseConfig[key];
+    const isSelected = selectedKeys.includes(key);
+
+    if (isSelected) {
+      // ✅ Deselect both popup and regular keys
+      setSelectedKeys((prev) => prev.filter((k) => k !== key));
+      setFormValues((prev) => {
+        const updated = { ...prev };
+        delete updated[key];
+        return updated;
+      });
+      return;
+    }
 
     if (popupKeys.includes(key)) {
       setActivePopupKey(key);
       return;
     }
 
-    setSelectedKeys((prev) => {
-      const isSelected = prev.includes(key);
-      if (isSelected) {
-        const updated = { ...formValues };
-        delete updated[key];
-        setFormValues(updated);
-        return prev.filter((k) => k !== key);
-      } else {
-        setFormValues((prev) => ({
-          ...prev,
-          [key]: structuredClone(config),
-        }));
-        return [...prev, key];
-      }
-    });
+    // Normal key
+    setSelectedKeys((prev) => [...prev, key]);
+    setFormValues((prev) => ({
+      ...prev,
+      [key]: structuredClone(config),
+    }));
   };
 
   const handleConfirmPopupValue = () => {
@@ -160,7 +163,7 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      {/* Pop-up Modal for popupKeys */}
+      {/* Popup Modal for special keys */}
       {activePopupKey && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
           <div className="bg-white p-6 rounded shadow-md max-w-md w-full">
@@ -224,3 +227,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+  
