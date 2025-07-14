@@ -1,0 +1,1294 @@
+
+
+{
+    "address_lat_long_config": {
+      "google_apikey": "",
+      "is_enabled": false,
+      "rate_limit": 100,
+      "test_lat": 19.076,
+      "test_long": 72.8777,
+      "test_mode": true,
+      "test_radius": 5
+    },
+    "apply_payment_logic": "PID",
+    "attributes": [
+      {
+        "label": "Amount Overdue",
+        "name": "total_due",
+        "options": [],
+        "type": "float"
+      },
+      {
+        "label": "Client - Customer Support Number",
+        "name": "client_static.customer_support_number",
+        "options": [],
+        "type": "float",
+        "value": "9969004747"
+      },
+      {
+        "label": "Client - Head office branch",
+        "name": "client_static.head_office_branch",
+        "options": [],
+        "type": "float",
+        "value": "Mumbai"
+      },
+      {
+        "label": "Updated At",
+        "name": "updated_at",
+        "options": [],
+        "type": "date"
+      },
+      {
+        "label": "Upcoming Emi Date",
+        "name": "upcoming_emi_date",
+        "options": [],
+        "type": "date"
+      },
+      {
+        "label": "Cibil Score",
+        "name": "cibil_score",
+        "options": [],
+        "type": "integer"
+      },
+      {
+        "label": "Monthly Income",
+        "name": "monthly_income",
+        "options": [],
+        "type": "float"
+      },
+      {
+        "label": "Active Financier Name",
+        "name": "active_financier_name",
+        "options": [],
+        "type": "string"
+      },
+      {
+        "label": "Loan Amount",
+        "name": "loan_amount",
+        "options": [],
+        "type": "float"
+      },
+      {
+        "label": "DPD",
+        "name": "current_dpd",
+        "options": [],
+        "type": "integer"
+      },
+      {
+        "label": "Rezolv Score",
+        "name": "score",
+        "options": [],
+        "type": "float"
+      },
+      {
+        "label": "Loan Type",
+        "name": "product",
+        "options": [
+          "PL",
+          "HL",
+          "CC",
+          "AL",
+          "GL",
+          "LAP",
+          "BL"
+        ],
+        "type": "enum"
+      },
+      {
+        "label": "DPD Bucket",
+        "name": "bucket",
+        "options": [
+          "BUCKET_X",
+          "BUCKET_1",
+          "BUCKET_2",
+          "BUCKET_3",
+          "BUCKET_4",
+          "PRE_DEL"
+        ],
+        "type": "enum"
+      },
+      {
+        "label": "Last Disposition",
+        "name": "last_disposition",
+        "options": [
+          "LM",
+          "FPTP",
+          "PTP",
+          "SHIFTED",
+          "DL",
+          "PAID",
+          "PARTIAL_PAID",
+          "BPTP",
+          "ANF",
+          "RTP",
+          "NC",
+          "NR",
+          "RNR",
+          "CP",
+          "DISPUTE",
+          "FRAUD",
+          "DEATH",
+          "STF",
+          "SUP_FOLLOW",
+          "LGT",
+          "DIF",
+          "DC",
+          "NDC",
+          "TR",
+          "SUC_THREAT",
+          "ST_PAID",
+          "TPTP",
+          "WA",
+          "SPTP",
+          "SA",
+          "CM",
+          "PPS",
+          "PPA",
+          "PPR",
+          "CB",
+          "LB",
+          "WN",
+          "CD",
+          "IWTC",
+          "ICR",
+          "RNR"
+        ],
+        "type": "enum"
+      },
+      {
+        "label": "City",
+        "name": "customer_city",
+        "options": [],
+        "type": "string"
+      },
+      {
+        "label": "State",
+        "name": "customer_state",
+        "options": [],
+        "type": "string"
+      },
+      {
+        "label": "Pincode",
+        "name": "customer_pincode",
+        "options": [],
+        "type": "integer"
+      },
+      {
+        "label": "Earliest Unpaid EMI Date",
+        "name": "earliest_unpaid_emi_date",
+        "options": [],
+        "type": "date"
+      },
+      {
+        "label": "Days on Ramp platform",
+        "name": "days_on_ramp",
+        "options": [],
+        "type": "integer"
+      },
+      {
+        "label": "Never On Field",
+        "name": "never_on_field",
+        "options": [],
+        "type": "boolean"
+      },
+      {
+        "label": "Never On Calling",
+        "name": "never_on_calling",
+        "options": [],
+        "type": "boolean"
+      },
+      {
+        "label": "Due Date",
+        "name": "due_date",
+        "options": [],
+        "type": "date"
+      },
+      {
+        "label": "Case Status",
+        "name": "status",
+        "options": [
+          "PAID",
+          "WITHDRAWN",
+          "INACTIVE"
+        ],
+        "type": "enum"
+      }
+    ],
+    "case_level": "LOAN",
+    "cc_case_level": "LOAN",
+    "communication_config": {
+      "calling_dispositions": [
+        {
+          "bgcolor": "#D6E8D3",
+          "category": "Positive",
+          "category_rank": 1,
+          "color": "#159F04",
+          "description": "Customer Paid full amount",
+          "disposition_category_ranking": 2,
+          "disposition_status": "Positive",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "PAID",
+          "order": 26,
+          "priority": "",
+          "priority_new": "P11",
+          "rank_order": 1
+        },
+        {
+          "bgcolor": "#D6E8D3",
+          "category": "Positive",
+          "category_rank": 1,
+          "color": "#159F04",
+          "description": "Customer Paid Partial Amount",
+          "disposition_category_ranking": 3,
+          "disposition_status": "Positive",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "PARTIAL_PAID",
+          "order": 27,
+          "priority": "",
+          "priority_new": "P11",
+          "rank_order": 1
+        },
+        {
+          "bgcolor": "#D6E8D3",
+          "category": "Positive",
+          "category_rank": 1,
+          "color": "#159F04",
+          "description": "Promise to pay",
+          "disposition_category_ranking": 4,
+          "disposition_status": "Positive",
+          "mandatory_fields": [
+            "follow_up_date"
+          ],
+          "mark_inactive": false,
+          "name": "PTP",
+          "order": 3,
+          "priority": "HIGH",
+          "priority_new": "P2",
+          "rank_order": 1
+        },
+        {
+          "bgcolor": "#D6E8D3",
+          "category": "Positive",
+          "category_rank": 1,
+          "color": "#159F04",
+          "description": "Future Promise to Pay (after 3 days)",
+          "disposition_category_ranking": 5,
+          "disposition_status": "Positive",
+          "mandatory_fields": [
+            "follow_up_date"
+          ],
+          "mark_inactive": false,
+          "name": "FPTP",
+          "order": 6,
+          "priority": "HIGH",
+          "priority_new": "P3",
+          "rank_order": 1
+        },
+        {
+          "bgcolor": "#D6E8D3",
+          "category": "Positive",
+          "category_rank": 1,
+          "color": "#159F04",
+          "description": "Claims Paid",
+          "disposition_category_ranking": 1,
+          "disposition_status": "Positive",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "CP",
+          "order": 13,
+          "priority": "",
+          "priority_new": "P6",
+          "rank_order": 1
+        },
+        {
+          "bgcolor": "#D6E8D3",
+          "category": "Positive",
+          "category_rank": 1,
+          "color": "#159F04",
+          "description": "Broken promise to pay",
+          "disposition_category_ranking": 8,
+          "disposition_status": "Positive",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "BPTP",
+          "order": 25,
+          "priority": "HIGH",
+          "priority_new": "P11",
+          "rank_order": 1
+        },
+        {
+          "bgcolor": "#D6E8D3",
+          "category": "Positive",
+          "category_rank": 1,
+          "color": "#159F04",
+          "description": "Issue with Bank account and hence no balance, send payment link instead",
+          "disposition_category_ranking": 7,
+          "disposition_status": "Positive",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "ACCOUNT_ISSUE",
+          "order": 10,
+          "priority": "HIGH",
+          "priority_new": "P5",
+          "rank_order": 1
+        },
+        {
+          "bgcolor": "#D6E8D3",
+          "category": "Positive",
+          "category_rank": 1,
+          "color": "#159F04",
+          "description": "Represent NACH, customer will maintain balance",
+          "disposition_category_ranking": 8,
+          "disposition_status": "Positive",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "NACH_REP",
+          "order": 9,
+          "priority": "HIGH",
+          "priority_new": "P4",
+          "rank_order": 1
+        },
+        {
+          "bgcolor": "#D6E8D3",
+          "category": "Positive",
+          "category_rank": 1,
+          "color": "#159F04",
+          "description": "Callback",
+          "disposition_category_ranking": 9,
+          "disposition_status": "Positive",
+          "mandatory_fields": [
+            "follow_up_date"
+          ],
+          "mark_inactive": false,
+          "name": "CB",
+          "order": 4,
+          "priority": "HIGH",
+          "priority_new": "P2",
+          "rank_order": 1
+        },
+        {
+          "bgcolor": "#FFDEBF",
+          "category": "Negative",
+          "category_rank": 2,
+          "color": "#FA7C04",
+          "description": "Unable To Pay - Financial Issue",
+          "disposition_category_ranking": 2,
+          "disposition_status": "Negative",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "UTP - Financial Issue",
+          "order": 28,
+          "priority": "",
+          "priority_new": "P11",
+          "rank_order": 2
+        },
+        {
+          "bgcolor": "#FFDEBF",
+          "category": "Negative",
+          "category_rank": 3,
+          "color": "#FA7C04",
+          "description": "Unable To Pay - Customer Intent",
+          "disposition_category_ranking": 2,
+          "disposition_status": "Negative",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "UTP - Customer Intent",
+          "order": 29,
+          "priority": "",
+          "priority_new": "P11",
+          "rank_order": 3
+        },
+        {
+          "bgcolor": "#FFDEBF",
+          "category": "Negative",
+          "category_rank": 2,
+          "color": "#FA7C04",
+          "description": "Unable To Pay - Partner issues",
+          "disposition_category_ranking": 2,
+          "disposition_status": "Negative",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "UTP - Partner issues",
+          "order": 30,
+          "priority": "",
+          "priority_new": "P11",
+          "rank_order": 2
+        },
+        {
+          "bgcolor": "#F8E582",
+          "category": "Neutral",
+          "category_rank": 3,
+          "color": "#413700",
+          "description": "Left Message",
+          "disposition_category_ranking": 1,
+          "disposition_status": "Neutral",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "LM",
+          "order": 5,
+          "priority": "HIGH",
+          "priority_new": "P2",
+          "rank_order": 3
+        },
+        {
+          "bgcolor": "#F8E582",
+          "category": "Neutral",
+          "category_rank": 2,
+          "color": "#413700",
+          "description": "Language Barrier",
+          "disposition_category_ranking": 3,
+          "disposition_status": "Neutral",
+          "mandatory_fields": [
+            "preferred_language"
+          ],
+          "mark_inactive": false,
+          "name": "LB",
+          "order": 12,
+          "priority": "",
+          "priority_new": "P6",
+          "rank_order": 2
+        },
+        {
+          "bgcolor": "#D6E8D3",
+          "category": "Positive",
+          "category_rank": 1,
+          "color": "#159F04",
+          "description": "Refuse to Pay",
+          "disposition_category_ranking": 7,
+          "disposition_status": "Positive",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "RTP",
+          "order": 7,
+          "priority": "HIGH",
+          "priority_new": "P4",
+          "rank_order": 1
+        },
+        {
+          "bgcolor": "#D1ACFD",
+          "category": "Non Contactable",
+          "category_rank": 4,
+          "color": "#5B00CB",
+          "description": "Outstation",
+          "disposition_category_ranking": 3,
+          "disposition_status": "Non Contactable",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "OS",
+          "order": 31,
+          "priority": "",
+          "priority_new": "P11",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#D6E8D3",
+          "category": "Positive",
+          "category_rank": 1,
+          "color": "#159F04",
+          "description": "Dispute",
+          "disposition_category_ranking": 6,
+          "disposition_status": "Positive",
+          "mandatory_fields": [],
+          "mark_inactive": true,
+          "name": "DISPUTE",
+          "order": 15,
+          "priority": "",
+          "priority_new": "P9",
+          "rank_order": 1
+        },
+        {
+          "bgcolor": "#FFDEBF",
+          "category": "Negative",
+          "category_rank": 3,
+          "color": "#FA7C04",
+          "description": "Legal Threat",
+          "disposition_category_ranking": 5,
+          "disposition_status": "Negative",
+          "mandatory_fields": [],
+          "mark_inactive": true,
+          "name": "LGT",
+          "order": 17,
+          "priority": "",
+          "priority_new": "P9",
+          "rank_order": 3
+        },
+        {
+          "bgcolor": "#D1ACFD",
+          "category": "Non Contactable",
+          "category_rank": 4,
+          "color": "#5B00CB",
+          "description": "Entry Restricted",
+          "disposition_category_ranking": 10,
+          "disposition_status": "Non Contactable",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "ENTRY_RESTRICTED",
+          "order": 32,
+          "priority": "",
+          "priority_new": "P11",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#D1ACFD",
+          "category": "Non Contactable",
+          "category_rank": 4,
+          "color": "#5B00CB",
+          "description": "Not Present",
+          "disposition_category_ranking": 11,
+          "disposition_status": "Non Contactable",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "NOT_PRESENT",
+          "order": 33,
+          "priority": "",
+          "priority_new": "P11",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#FFDEBF",
+          "category": "Negative",
+          "category_rank": 2,
+          "color": "#FA7C04",
+          "description": "Death in Family",
+          "disposition_category_ranking": 2,
+          "disposition_status": "Negative",
+          "mandatory_fields": [],
+          "mark_inactive": true,
+          "name": "DEATH",
+          "order": 18,
+          "priority": "",
+          "priority_new": "P10",
+          "rank_order": 2
+        },
+        {
+          "bgcolor": "#F9CFD7",
+          "category": "Escalations",
+          "category_rank": 4,
+          "color": "#DD2142",
+          "description": "Death in Family",
+          "disposition_category_ranking": 2,
+          "disposition_status": "Negative",
+          "mandatory_fields": [],
+          "mark_inactive": true,
+          "name": "DIF",
+          "order": 19,
+          "priority": "",
+          "priority_new": "P10",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#F9CFD7",
+          "category": "Escalations",
+          "category_rank": 4,
+          "color": "#DD2142",
+          "description": "Supervisor Followup",
+          "disposition_category_ranking": 3,
+          "disposition_status": "Negative",
+          "mandatory_fields": [],
+          "mark_inactive": true,
+          "name": "SUP_FOLLOW",
+          "order": 20,
+          "priority": "",
+          "priority_new": "P10",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#FFDEBF",
+          "category": "Negative",
+          "category_rank": 2,
+          "color": "#FA7C04",
+          "description": "Settlement Request",
+          "disposition_category_ranking": 1,
+          "disposition_status": "Negative",
+          "mandatory_fields": [],
+          "mark_inactive": true,
+          "name": "SETTLEMENT_REQUEST",
+          "order": 21,
+          "priority": "",
+          "priority_new": "P10",
+          "rank_order": 2
+        },
+        {
+          "bgcolor": "#F9CFD7",
+          "category": "Escalations",
+          "category_rank": 4,
+          "color": "#DD2142",
+          "description": "Fraud",
+          "disposition_category_ranking": 4,
+          "disposition_status": "Negative",
+          "mandatory_fields": [],
+          "mark_inactive": true,
+          "name": "FRAUD",
+          "order": 16,
+          "priority": "",
+          "priority_new": "P9",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#F9CFD7",
+          "category": "Escalations",
+          "category_rank": 4,
+          "color": "#DD2142",
+          "description": "Suicide threat",
+          "disposition_category_ranking": 5,
+          "disposition_status": "Negative",
+          "mandatory_fields": [],
+          "mark_inactive": true,
+          "name": "SUC_THREAT",
+          "order": 22,
+          "priority": "",
+          "priority_new": "P10",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#D1ACFD",
+          "category": "Non Contactable",
+          "category_rank": 4,
+          "color": "#5B00CB",
+          "description": "Switched Off",
+          "disposition_category_ranking": 12,
+          "disposition_status": "Non Contactable",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "SWITCHED_OFF",
+          "order": 34,
+          "priority": "",
+          "priority_new": "P11",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#D1ACFD",
+          "category": "Non Contactable",
+          "category_rank": 4,
+          "color": "#5B00CB",
+          "description": "Non Contactable",
+          "disposition_category_ranking": 2,
+          "disposition_status": "Non Contactable",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "NC",
+          "order": 1,
+          "priority": "",
+          "priority_new": "P1",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#D1ACFD",
+          "category": "Non Contactable",
+          "category_rank": 4,
+          "color": "#5B00CB",
+          "description": "Ringing No response",
+          "disposition_category_ranking": 1,
+          "disposition_status": "Non Contactable",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "RNR",
+          "order": 2,
+          "priority": "",
+          "priority_new": "P2",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#D1ACFD",
+          "category": "Non Contactable",
+          "category_rank": 4,
+          "color": "#5B00CB",
+          "description": "Wrong Number",
+          "disposition_category_ranking": 13,
+          "disposition_status": "Non Contactable",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "WN",
+          "order": 11,
+          "priority": "",
+          "priority_new": "P6",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#D1ACFD",
+          "category": "Non Contactable",
+          "category_rank": 4,
+          "color": "#5B00CB",
+          "description": "Door Lock",
+          "disposition_category_ranking": 4,
+          "disposition_status": "Non Contactable",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "DL",
+          "order": 35,
+          "priority": "HIGH",
+          "priority_new": "P11",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#D1ACFD",
+          "category": "Non Contactable",
+          "category_rank": 4,
+          "color": "#5B00CB",
+          "description": "Address not found",
+          "disposition_category_ranking": 5,
+          "disposition_status": "Non Contactable",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "ANF",
+          "order": 36,
+          "priority": "HIGH",
+          "priority_new": "P11",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#D1ACFD",
+          "category": "Non Contactable",
+          "category_rank": 4,
+          "color": "#5B00CB",
+          "description": "Short Address",
+          "disposition_category_ranking": 6,
+          "disposition_status": "Non Contactable",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "SA",
+          "order": 37,
+          "priority": "",
+          "priority_new": "P11",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#D1ACFD",
+          "category": "Non Contactable",
+          "category_rank": 4,
+          "color": "#5B00CB",
+          "description": "Address shifted",
+          "disposition_category_ranking": 7,
+          "disposition_status": "Non Contactable",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "SHIFTED",
+          "order": 38,
+          "priority": "",
+          "priority_new": "P11",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#D1ACFD",
+          "category": "Non Contactable",
+          "category_rank": 4,
+          "color": "#5B00CB",
+          "description": "Wrong Address",
+          "disposition_category_ranking": 8,
+          "disposition_status": "Non Contactable",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "WA",
+          "order": 39,
+          "priority": "",
+          "priority_new": "P11",
+          "rank_order": 4
+        },
+        {
+          "bgcolor": "#D1ACFD",
+          "category": "Non Contactable",
+          "category_rank": 4,
+          "color": "#5B00CB",
+          "description": "No Response",
+          "disposition_category_ranking": 9,
+          "disposition_status": "Non Contactable",
+          "mandatory_fields": [],
+          "mark_inactive": false,
+          "name": "NR",
+          "order": 40,
+          "priority": "",
+          "priority_new": "P11",
+          "rank_order": 4
+        }
+      ],
+      "dnd_config": [
+        {
+          "communication_day": "MONDAY",
+          "communication_end_time_slot": "19:06:00",
+          "communication_start_time_slot": "10:03:00"
+        },
+        {
+          "communication_day": "TUESDAY",
+          "communication_end_time_slot": "20:18:00",
+          "communication_start_time_slot": "09:18:00"
+        },
+        {
+          "communication_day": "WEDNESDAY",
+          "communication_end_time_slot": "20:18:00",
+          "communication_start_time_slot": "08:18:00"
+        },
+        {
+          "communication_day": "THURSDAY",
+          "communication_end_time_slot": "20:18:00",
+          "communication_start_time_slot": "08:18:00"
+        },
+        {
+          "communication_day": "FRIDAY",
+          "communication_end_time_slot": "20:18:00",
+          "communication_start_time_slot": "08:18:00"
+        },
+        {
+          "communication_day": "SATURDAY",
+          "communication_end_time_slot": "21:18:00",
+          "communication_start_time_slot": "09:18:00"
+        },
+        {
+          "communication_day": "SUNDAY",
+          "communication_end_time_slot": "23:18:00",
+          "communication_start_time_slot": "10:18:00"
+        }
+      ],
+      "frequency_config": [
+        {
+          "frequency_per_day": 1000,
+          "frequency_per_month": 2000,
+          "frequency_per_week": 1000,
+          "frequency_type": "ALL"
+        },
+        {
+          "frequency_per_day": 10,
+          "frequency_per_month": 10,
+          "frequency_per_week": 10,
+          "frequency_type": "PUSH"
+        },
+        {
+          "frequency_per_day": 1000,
+          "frequency_per_month": 10000,
+          "frequency_per_week": 1000,
+          "frequency_type": "SMS"
+        },
+        {
+          "frequency_per_day": 10,
+          "frequency_per_month": 10,
+          "frequency_per_week": 10,
+          "frequency_type": "WHATSAPP"
+        },
+        {
+          "frequency_per_day": 0,
+          "frequency_per_month": 0,
+          "frequency_per_week": 0,
+          "frequency_type": "VOICEBOT"
+        },
+        {
+          "frequency_per_day": 10,
+          "frequency_per_month": 10,
+          "frequency_per_week": 10,
+          "frequency_type": "CHATBOT"
+        },
+        {
+          "frequency_per_day": 10,
+          "frequency_per_month": 101,
+          "frequency_per_week": 10,
+          "frequency_type": "EMAIL"
+        },
+        {
+          "frequency_per_day": 10,
+          "frequency_per_month": 10,
+          "frequency_per_week": 10,
+          "frequency_type": "INAPP"
+        },
+        {
+          "frequency_per_day": 10,
+          "frequency_per_month": 100,
+          "frequency_per_week": 20,
+          "frequency_type": "IVR"
+        }
+      ]
+    },
+    "daily_calls_limit": 20,
+    "distance_check_meters": 100,
+    "input_attributes": [
+      {
+        "label": "Input custom_payment_amount",
+        "name": "input.custom_payment_amount",
+        "options": [
+          100,
+          200,
+          500
+        ],
+        "type": "float"
+      },
+      {
+        "label": "Input Payment Method",
+        "name": "input.payment_type",
+        "options": [
+          "CASH",
+          "Bank TRF",
+          "Cheque"
+        ],
+        "type": "String"
+      }
+    ],
+    "payment_config": {
+      "bank_deposit_payment_methods": [
+        {
+          "mid": "",
+          "mode": "upi_intent",
+          "partner": "razorpay",
+          "surcharge_percent": "",
+          "upi_apps": [
+            "gpay",
+            "phonepe",
+            "paytm"
+          ]
+        },
+        {
+          "mid": "",
+          "mode": "upi_collect",
+          "partner": "razorpay",
+          "surcharge_percent": ""
+        },
+        {
+          "account_details": {
+            "bank_account_no": "1234567890",
+            "bank_name": "HDFC",
+            "beneficiary_name": "Anil",
+            "branch_ifsc_code": "HDFC006",
+            "branch_name": "AndheriEast"
+          },
+          "mode": "offline_bank_deposit",
+          "partner": null,
+          "surcharge_percent": "",
+          "upi_apps": null
+        }
+      ],
+      "customer_payment_methods": [
+        {
+          "mid": "123",
+          "mode": "pg",
+          "partner": "razorpay",
+          "surcharge_percent": ""
+        },
+        {
+          "mid": "456",
+          "mode": "upi_intent",
+          "partner": "razorpay",
+          "surcharge_percent": "",
+          "upi_apps": [
+            "gpay",
+            "phonepe",
+            "paytm"
+          ]
+        },
+        {
+          "mid": "789",
+          "mode": "upi_collect",
+          "partner": "razorpay",
+          "surcharge_percent": ""
+        }
+      ],
+      "payment_config_type": "nonnative",
+      "payment_native": {
+        "native_send_payment": {
+          "attributes": "customer_ref_number",
+          "webengage_campaign_id": "349h930"
+        },
+        "send_payment_link_type": "campaign"
+      },
+      "payment_nonnative": {
+        "initiate_payment_link": {
+          "partner": "PAYU"
+        },
+        "nonnative_send_payment": {
+          "attributes": "",
+          "webengage_campaign_id": ""
+        },
+        "send_payment_link_api": {
+          "method": "",
+          "url": ""
+        },
+        "send_payment_link_type": "initiate_payment_link"
+      },
+      "payu": [
+        {
+          "client_id": "2d352ec7d24b1b28b786288ea18721a77be7e7aa49a56ef031f4b08c40d951ed",
+          "client_secret": "a0a005b9a7975c86303c2c131780905cc38d8edef9dd2996d74eafb2feb9f7cc",
+          "mid": "8628157"
+        }
+      ],
+      "razorpay": [
+        {
+          "key_id": "rzp_live_rpeyVtPyKylG2f",
+          "key_secret": "X2OTSt2ubGMnL9E10i3BCXia",
+          "mid": "CFO-QA-RZ-001"
+        }
+      ]
+    },
+    "permissions": {
+      "allow_webview": false
+    },
+    "providers": [
+      {
+        "channel": "SMS",
+        "icon_url": "",
+        "keys": [
+          {
+            "datatype": "string",
+            "is_hidden": true,
+            "key": "api_key",
+            "label": "API Key",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "license_code",
+            "label": "License Code",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "webengage_base_url",
+            "label": "Webengage Base Url",
+            "options": []
+          }
+        ],
+        "name": "WEBENGAGE"
+      },
+      {
+        "channel": "SMS",
+        "icon_url": "",
+        "keys": [
+          {
+            "datatype": "string",
+            "is_hidden": true,
+            "key": "auth_key",
+            "label": "Auth Key",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "msg91_base_url",
+            "label": "Base Url",
+            "options": []
+          }
+        ],
+        "name": "MSG91"
+      },
+      {
+        "channel": "WHATSAPP",
+        "icon_url": "",
+        "keys": [
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "user_id",
+            "label": "User Id",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": true,
+            "key": "password",
+            "label": "Password",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "base_url",
+            "label": "Base Url",
+            "options": []
+          }
+        ],
+        "name": "GUPSHUP"
+      },
+      {
+        "channel": "IVR",
+        "icon_url": "",
+        "keys": [
+          {
+            "datatype": "string",
+            "is_hidden": true,
+            "key": "api_key",
+            "label": "API Key",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "kaleyra_base_url",
+            "label": "Base Url",
+            "options": []
+          }
+        ],
+        "name": "KALEYRA"
+      },
+      {
+        "channel": "INAPP",
+        "icon_url": "",
+        "keys": [
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "pusher_app_id",
+            "label": "App Id",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "pusher_cluster",
+            "label": "Cluster",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "pusher_key",
+            "label": "Api Key",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "pusher_secret",
+            "label": "Api Secret",
+            "options": []
+          }
+        ],
+        "name": "PUSHER"
+      },
+      {
+        "channel": "IVR",
+        "icon_url": "",
+        "keys": [],
+        "name": "NO_ACTION"
+      },
+      {
+        "channel": "VOICEBOT",
+        "icon_url": "",
+        "keys": [],
+        "name": "API"
+      },
+      {
+        "channel": "IVR",
+        "icon_url": "",
+        "keys": [],
+        "name": "API"
+      },
+      {
+        "channel": "SMS",
+        "icon_url": "",
+        "keys": [],
+        "name": "API"
+      },
+      {
+        "channel": "WHATSAPP",
+        "icon_url": "",
+        "keys": [],
+        "name": "API"
+      }
+    ],
+    "sender_id": "Rezolv",
+  "dialer_configuration": {
+      "dialers": [
+        {
+          "icon_url": "",
+          "keys": [
+            {
+              "datatype": "string",
+              "is_hidden": true,
+              "key": "api_key",
+              "label": "API Key",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "base_url",
+              "label": "Base Url",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "did",
+              "label": "DID",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "user_name",
+              "label": "USER NAME",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "sip_location",
+              "label": "SIP LOCATIION",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "campaign_name",
+              "label": "CAMPAIGN NAME",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "bridge_call_did",
+              "label": "BRIDGE CALL DID",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "bridge_call_campaign_name",
+              "label": "BRIDGE CALL CAMPAIGN NAME",
+              "options": []
+            }
+          ],
+          "name": "OZONETEL"
+        },
+        {
+          "icon_url": "",
+          "keys": [
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "user",
+              "label": "USER",
+              "options": []
+            },
+            {
+              "datatype":"string",
+              "is_hidden": true,
+              "key": "password",
+              "label": "PASSWORD",
+              "options": []
+            },
+            {
+              "datatype":"string",
+              "is_hidden": false,
+              "key": "base_url",
+              "label": "BASE URL",
+              "options": []
+            }
+          ],
+          "name": "DIALSHREE"
+        },
+        {
+          "icon_url": "",
+          "keys": [
+            {
+              "datatype": "string",
+              "is_hidden": true,
+              "key": "auth_key",
+              "label": "Auth Key",
+              "options": []
+            }
+          ],
+          "name": "FONADA"
+        }
+      ]
+    }
+  }

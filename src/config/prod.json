@@ -1,0 +1,738 @@
+{
+    "address_lat_long_config": {
+      "google_apikey": "",
+      "is_geocoding_enabled": false,
+      "likely_address_enabled": false,
+      "llm_api_key": "",
+      "llm_version": "1.0",
+      "rate_limit": 100,
+      "test_lat": 19.076,
+      "test_long": 72.8777,
+      "test_mode": true,
+      "test_radius": 5
+    },
+    "apply_payment_logic": "PID",
+    "attributes": [
+      {
+        "label": "Amount Overdue",
+        "name": "total_due",
+        "options": [],
+        "type": "float"
+      },
+      {
+        "label": "Cibil Score",
+        "name": "cibil_score",
+        "options": [],
+        "type": "integer"
+      },
+      {
+        "label": "Monthly Income",
+        "name": "monthly_income",
+        "options": [],
+        "type": "float"
+      },
+      {
+        "label": "Active Financier Name",
+        "name": "active_financier_name",
+        "options": [],
+        "type": "string"
+      },
+      {
+        "label": "Loan Amount",
+        "name": "loan_amount",
+        "options": [],
+        "type": "float"
+      },
+      {
+        "label": "DPD",
+        "name": "current_dpd",
+        "options": [],
+        "type": "integer"
+      },
+      {
+        "label": "Rezolv Score",
+        "name": "score",
+        "options": [],
+        "type": "float"
+      },
+      {
+        "label": "Loan Type",
+        "name": "product",
+        "options": [
+          "PL",
+          "HL",
+          "CC",
+          "AL",
+          "GL",
+          "LAP",
+          "BL"
+        ],
+        "type": "enum"
+      },
+      {
+        "label": "DPD Bucket",
+        "name": "bucket",
+        "options": [
+          "BUCKET_X",
+          "BUCKET_1",
+          "BUCKET_2",
+          "BUCKET_3",
+          "BUCKET_4",
+          "PRE_DEL"
+        ],
+        "type": "enum"
+      },
+      {
+        "label": "Last Disposition",
+        "name": "last_disposition",
+        "options": [
+          "LM",
+          "FPTP",
+          "PTP",
+          "SHIFTED",
+          "DL",
+          "PAID",
+          "PARTIAL_PAID",
+          "BPTP",
+          "ANF",
+          "RTP",
+          "NC",
+          "NR",
+          "RNR",
+          "CP",
+          "DISPUTE",
+          "FRAUD",
+          "DEATH",
+          "STF",
+          "SUP_FOLLOW",
+          "LGT",
+          "DIF",
+          "DC",
+          "NDC",
+          "TR",
+          "SUC_THREAT",
+          "ST_PAID",
+          "TPTP",
+          "WA",
+          "SPTP",
+          "SA",
+          "CM",
+          "PPS",
+          "PPA",
+          "PPR",
+          "CB",
+          "LB",
+          "WN",
+          "CD",
+          "IWTC",
+          "ICR",
+          "RNR"
+        ],
+        "type": "enum"
+      },
+      {
+        "label": "City",
+        "name": "customer_city",
+        "options": [],
+        "type": "string"
+      },
+      {
+        "label": "State",
+        "name": "customer_state",
+        "options": [],
+        "type": "string"
+      },
+      {
+        "label": "Pincode",
+        "name": "customer_pincode",
+        "options": [],
+        "type": "integer"
+      },
+      {
+        "label": "Earliest Unpaid EMI Date",
+        "name": "earliest_unpaid_emi_date",
+        "options": [],
+        "type": "date"
+      },
+      {
+        "label": "Days on Ramp platform",
+        "name": "days_on_ramp",
+        "options": [],
+        "type": "integer"
+      },
+      {
+        "label": "Never On Field",
+        "name": "never_on_field",
+        "options": [],
+        "type": "boolean"
+      },
+      {
+        "label": "Never On Calling",
+        "name": "never_on_calling",
+        "options": [],
+        "type": "boolean"
+      },
+      {
+        "label": "Call Attempts In Last 48 Hours",
+        "name": "call_attempts_in_last_48_hours",
+        "options": [],
+        "type": "integer"
+      },
+      {
+        "label": "Connected Calls In Last 72 Hours",
+        "name": "connected_calls_in_last_72_hours",
+        "options": [],
+        "type": "integer"
+      },
+      {
+        "label": "Case Status",
+        "name": "status",
+        "options": [
+          "ACTIVE",
+          "INACTIVE",
+          "WITHDRAWN",
+          "PAID"
+        ],
+        "type": "enum"
+      },
+      {
+        "label": "Due date",
+        "name": "due_date",
+        "options": [],
+        "type": "date"
+      },
+      {
+        "label": "Upcoming EMI Date",
+        "name": "upcoming_emi_date",
+        "options": [],
+        "type": "date"
+      },
+      {
+        "label": "First Name",
+        "name": "first_name",
+        "options": [],
+        "type": "string"
+      },
+      {
+        "label": "EMI Amount",
+        "name": "emi_amount",
+        "options": [],
+        "type": "float"
+      },
+      {
+        "label": "Short Link",
+        "name": "short_link",
+        "options": [],
+        "type": "string"
+      }
+    ],
+    "case_level": "LOAN",
+    "cc_case_level": "LOAN",
+    "communication_config": {
+      "dnd_config": [
+        {
+          "communication_day": "MONDAY",
+          "communication_end_time_slot": "21:00:00",
+          "communication_start_time_slot": "08:30:00"
+        },
+        {
+          "communication_day": "TUESDAY",
+          "communication_end_time_slot": "21:00:00",
+          "communication_start_time_slot": "06:30:00"
+        },
+        {
+          "communication_day": "WEDNESDAY",
+          "communication_end_time_slot": "21:00:00",
+          "communication_start_time_slot": "08:30:00"
+        },
+        {
+          "communication_day": "THURSDAY",
+          "communication_end_time_slot": "21:00:00",
+          "communication_start_time_slot": "08:30:00"
+        },
+        {
+          "communication_day": "FRIDAY",
+          "communication_end_time_slot": "21:00:00",
+          "communication_start_time_slot": "08:30:00"
+        },
+        {
+          "communication_day": "SATURDAY",
+          "communication_end_time_slot": "21:00:00",
+          "communication_start_time_slot": "08:30:00"
+        },
+        {
+          "communication_day": "SUNDAY",
+          "communication_end_time_slot": "21:00:00",
+          "communication_start_time_slot": "08:01:00"
+        }
+      ],
+      "frequency_config": [
+        {
+          "frequency_per_day": 100,
+          "frequency_per_month": 100,
+          "frequency_per_week": 100,
+          "frequency_type": "ALL"
+        },
+        {
+          "frequency_per_day": 1,
+          "frequency_per_month": 84,
+          "frequency_per_week": 20,
+          "frequency_type": "PUSH"
+        },
+        {
+          "frequency_per_day": 5,
+          "frequency_per_month": 84,
+          "frequency_per_week": 50,
+          "frequency_type": "SMS"
+        },
+        {
+          "frequency_per_day": 2,
+          "frequency_per_month": 200,
+          "frequency_per_week": 100,
+          "frequency_type": "WHATSAPP"
+        },
+        {
+          "frequency_per_day": 2,
+          "frequency_per_month": 84,
+          "frequency_per_week": 21,
+          "frequency_type": "VOICEBOT"
+        },
+        {
+          "frequency_per_day": 1,
+          "frequency_per_month": 84,
+          "frequency_per_week": 21,
+          "frequency_type": "CHATBOT"
+        },
+        {
+          "frequency_per_day": 1,
+          "frequency_per_month": 100,
+          "frequency_per_week": 30,
+          "frequency_type": "EMAIL"
+        },
+        {
+          "frequency_per_day": 10,
+          "frequency_per_month": 100,
+          "frequency_per_week": 30,
+          "frequency_type": "INAPP"
+        },
+        {
+          "frequency_per_day": 2,
+          "frequency_per_month": 100,
+          "frequency_per_week": 30,
+          "frequency_type": "IVR"
+        }
+      ]
+    },
+    "daily_calls_limit": 20,
+    "dialer_configuration": {
+      "dialers": [
+        {
+          "icon_url": "",
+          "keys": [
+            {
+              "datatype": "string",
+              "is_hidden": true,
+              "key": "api_key",
+              "label": "API Key",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "base_url",
+              "label": "Base Url",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "did",
+              "label": "DID",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "user_name",
+              "label": "USER NAME",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "sip_location",
+              "label": "SIP LOCATIION",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "campaign_name",
+              "label": "CAMPAIGN NAME",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "bridge_call_did",
+              "label": "BRIDGE CALL DID",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "bridge_call_campaign_name",
+              "label": "BRIDGE CALL CAMPAIGN NAME",
+              "options": []
+            }
+          ],
+          "name": "OZONETEL"
+        },
+        {
+          "icon_url": "",
+          "keys": [
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "user",
+              "label": "USER",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": true,
+              "key": "password",
+              "label": "PASSWORD",
+              "options": []
+            },
+            {
+              "datatype": "string",
+              "is_hidden": false,
+              "key": "base_url",
+              "label": "BASE URL",
+              "options": []
+            }
+          ],
+          "name": "DIALSHREE"
+        }
+      ]
+    },
+    "distance_check_meters": 100,
+    "payment_config": {
+      "bank_deposit_payment_methods": [
+        {
+          "mid": "",
+          "mode": "upi_intent",
+          "partner": "razorpay",
+          "surcharge_percent": "",
+          "upi_apps": [
+            "gpay",
+            "phonepe",
+            "paytm"
+          ]
+        },
+        {
+          "mid": "",
+          "mode": "upi_collect",
+          "partner": "razorpay",
+          "surcharge_percent": ""
+        },
+        {
+          "account_details": {
+            "bank_account_no": "",
+            "bank_name": "",
+            "beneficiary_name": "",
+            "branch_ifsc_code": "",
+            "branch_name": ""
+          },
+          "mode": "offline_bank_deposit",
+          "partner": null,
+          "surcharge_percent": "",
+          "upi_apps": null
+        }
+      ],
+      "customer_payment_methods": [
+        {
+          "mid": "123",
+          "mode": "pg",
+          "partner": "razorpay",
+          "surcharge_percent": ""
+        },
+        {
+          "mid": "456",
+          "mode": "upi_intent",
+          "partner": "razorpay",
+          "surcharge_percent": "",
+          "upi_apps": [
+            "gpay",
+            "phonepe",
+            "paytm"
+          ]
+        },
+        {
+          "mid": "789",
+          "mode": "upi_collect",
+          "partner": "razorpay",
+          "surcharge_percent": ""
+        }
+      ],
+      "payment_config_type": "nonnative",
+      "payment_native": {
+        "native_send_payment": {
+          "attributes": "",
+          "webengage_campaign_id": ""
+        },
+        "send_payment_link_type": ""
+      },
+      "payment_nonnative": {
+        "initiate_payment_link": {
+          "partner": "PAYU"
+        },
+        "nonnative_send_payment": {
+          "attributes": "",
+          "webengage_campaign_id": ""
+        },
+        "send_payment_link_api": {
+          "method": "",
+          "url": ""
+        },
+        "send_payment_link_type": "initiate_payment_link"
+      },
+      "payu": [
+        {
+          "client_id": "ae4c3eee35329b606288a523c06bfca4fe7434d1e4b2358e98c803bdd07db70e",
+          "client_secret": "e309ac74cbc8d2741f393510ddbb00e7173255383e088f8fcc68c2d31f3fac1c",
+          "mid": "197091"
+        }
+      ],
+      "razorpay": [
+        {
+          "key_id": "",
+          "key_secret": "",
+          "mid": "",
+          "payee_name": "",
+          "payee_vpa": ""
+        }
+      ]
+    },
+    "providers": [
+      {
+        "channel": "SMS",
+        "icon_url": "",
+        "keys": [
+          {
+            "datatype": "string",
+            "is_hidden": true,
+            "key": "auth_key",
+            "label": "Auth Key",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "msg91_base_url",
+            "label": "Base Url",
+            "options": []
+          },
+          {
+            "datatype": "integer",
+            "is_hidden": false,
+            "key": "rate_limit_period",
+            "label": "Rate limit period",
+            "options": []
+          },
+          {
+            "datatype": "integer",
+            "is_hidden": false,
+            "key": "rate_limit_rate",
+            "label": "Rate limit rate",
+            "options": []
+          },
+          {
+            "datatype": "integer",
+            "is_hidden": false,
+            "key": "rate_limit_burst",
+            "label": "Rate limit burst",
+            "options": []
+          },
+          {
+            "datatype": "boolean",
+            "is_hidden": false,
+            "key": "is_rate_limit_enabled",
+            "label": "Is Rate Limit Enabled",
+            "options": []
+          }
+        ],
+        "name": "MSG91"
+      },
+      {
+        "channel": "WHATSAPP",
+        "icon_url": "",
+        "keys": [
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "user_id",
+            "label": "User Id",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": true,
+            "key": "password",
+            "label": "Password",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "base_url",
+            "label": "Base Url",
+            "options": []
+          },
+          {
+            "datatype": "integer",
+            "is_hidden": false,
+            "key": "rate_limit_period",
+            "label": "Rate limit period",
+            "options": []
+          },
+          {
+            "datatype": "integer",
+            "is_hidden": false,
+            "key": "rate_limit_rate",
+            "label": "Rate limit rate",
+            "options": []
+          },
+          {
+            "datatype": "integer",
+            "is_hidden": false,
+            "key": "rate_limit_burst",
+            "label": "Rate limit burst",
+            "options": []
+          },
+          {
+            "datatype": "boolean",
+            "is_hidden": false,
+            "key": "is_rate_limit_enabled",
+            "label": "Is Rate Limit Enabled",
+            "options": []
+          }
+        ],
+        "name": "GUPSHUP"
+      },
+      {
+        "channel": "IVR",
+        "icon_url": "",
+        "keys": [
+          {
+            "datatype": "string",
+            "is_hidden": true,
+            "key": "api_key",
+            "label": "API Key",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "kaleyra_base_url",
+            "label": "Base Url",
+            "options": []
+          },
+          {
+            "datatype": "integer",
+            "is_hidden": false,
+            "key": "rate_limit_period",
+            "label": "Rate limit period",
+            "options": []
+          },
+          {
+            "datatype": "integer",
+            "is_hidden": false,
+            "key": "rate_limit_rate",
+            "label": "Rate limit rate",
+            "options": []
+          },
+          {
+            "datatype": "integer",
+            "is_hidden": false,
+            "key": "rate_limit_burst",
+            "label": "Rate limit burst",
+            "options": []
+          },
+          {
+            "datatype": "boolean",
+            "is_hidden": false,
+            "key": "is_rate_limit_enabled",
+            "label": "Is Rate Limit Enabled",
+            "options": []
+          }
+        ],
+        "name": "KALEYRA"
+      },
+      {
+        "channel": "INAPP",
+        "icon_url": "",
+        "keys": [
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "app_id",
+            "label": "App Id",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "cluster",
+            "label": "Cluster",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "key",
+            "label": "Api Key",
+            "options": []
+          },
+          {
+            "datatype": "string",
+            "is_hidden": false,
+            "key": "secret",
+            "label": "Api Secret",
+            "options": []
+          },
+          {
+            "datatype": "integer",
+            "is_hidden": false,
+            "key": "rate_limit_period",
+            "label": "Rate limit period",
+            "options": []
+          },
+          {
+            "datatype": "integer",
+            "is_hidden": false,
+            "key": "rate_limit_rate",
+            "label": "Rate limit rate",
+            "options": []
+          },
+          {
+            "datatype": "integer",
+            "is_hidden": false,
+            "key": "rate_limit_burst",
+            "label": "Rate limit burst",
+            "options": []
+          },
+          {
+            "datatype": "boolean",
+            "is_hidden": false,
+            "key": "is_rate_limit_enabled",
+            "label": "Is Rate Limit Enabled",
+            "options": []
+          }
+        ],
+        "name": "PUSHER"
+      }
+    ],
+    "sender_id": "FINOVA"   
+  }
