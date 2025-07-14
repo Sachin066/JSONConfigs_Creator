@@ -6,36 +6,83 @@ interface Props {
   onChange: (path: string[], value: any) => void;
 }
 
+const tooltips: Record<string, string> = {
+  sender_id: "Sender ID used in SMS/communication.",
+  case_level: "Case level config, e.g., LOAN level.",
+  cc_case_level: "Call center case level.",
+  apply_payment_logic: "Logic to apply on payment (e.g. PID).",
+  distance_check_meters: "Max distance allowed to check location accuracy.",
+  daily_calls_limit: "Limit on number of daily calls.",
+  google_apikey: "Google API key used for geocoding.",
+  is_geocoding_enabled: "Toggle geocoding feature on/off.",
+  test_radius: "Radius to test lat/long accuracy.",
+  base_url: "Base URL for provider or dialer API.",
+  auth_key: "Authentication key for communication.",
+  sip_location: "SIP server region (e.g., IN, US).",
+  campaign_name: "Campaign identifier for dialers.",
+  bridge_call_did: "Bridge call DID number.",
+  rate_limit_period: "Period in seconds for rate limiting.",
+  rate_limit_rate: "Allowed requests per period.",
+  rate_limit_burst: "Max burst allowed in rate limit.",
+  is_rate_limit_enabled: "Toggle rate limiting on/off.",
+};
+
 const SectionForm: React.FC<Props> = ({ section, data, onChange }) => {
   if (!data) return null;
 
-  const excludedFlatKeys = [
+  const flatTextKeys = [
     "sender_id",
     "case_level",
     "cc_case_level",
     "apply_payment_logic",
     "distance_check_meters",
-    "daily_calls_limit"
+    "daily_calls_limit",
   ];
 
-  const renderField = (key: string, value: any, path: string[]): React.ReactNode => {
+  const renderField = (key: string, value: any, path: string[]) => {
     const fullPath = [...path, key];
-    const label = (
-      <label className="block text-sm font-medium text-gray-700 capitalize">
-        {key.replace(/_/g, " ")}
-      </label>
-    );
+    const tooltipText = tooltips[key] || "";
 
-    // ❌ Skip keys handled via popup
-    if (typeof value === "string" && excludedFlatKeys.includes(key)) {
-      return null;
-    }
-
-    // ✅ Primitive
-    if (["string", "number", "boolean"].includes(typeof value)) {
+    // Simple text input fields
+    if (typeof value === "string" && flatTextKeys.includes(key)) {
       return (
         <div key={fullPath.join(".")} className="mb-3">
-          {label}
+          <label
+            className="block text-sm font-medium text-gray-700 capitalize"
+            title={tooltipText}
+          >
+            {key.replace(/_/g, " ")}
+          </label>
+          <input
+            type="text"
+            value={value}
+            onChange={(e) => onChange(fullPath, e.target.value)}
+            className="mt-1 block w-full border rounded px-2 py-1"
+          />
+        </div>
+      );
+    }
+
+    // Enum detection
+    const isEnumArray =
+      Array.isArray(value) &&
+      value.length > 0 &&
+      value.every((v) => typeof v === "string");
+
+    // Primitive fields
+    if (
+      typeof value === "string" ||
+      typeof value === "number" ||
+      typeof value === "boolean"
+    ) {
+      return (
+        <div key={fullPath.join(".")} className="mb-3">
+          <label
+            className="block text-sm font-medium text-gray-700 capitalize"
+            title={tooltipText}
+          >
+            {key.replace(/_/g, " ")}
+          </label>
           {typeof value === "boolean" ? (
             <input
               type="checkbox"
@@ -60,14 +107,16 @@ const SectionForm: React.FC<Props> = ({ section, data, onChange }) => {
       );
     }
 
-    // ✅ ENUM dropdown
-    if (
-      Array.isArray(value) &&
-      value.every((v) => typeof v === "string")
-    ) {
+    // Enum dropdown
+    if (isEnumArray) {
       return (
         <div key={fullPath.join(".")} className="mb-3">
-          {label}
+          <label
+            className="block text-sm font-medium text-gray-700 capitalize"
+            title={tooltipText}
+          >
+            {key.replace(/_/g, " ")}
+          </label>
           <select
             value={value[0] || ""}
             onChange={(e) => onChange(fullPath, [e.target.value])}
@@ -84,20 +133,24 @@ const SectionForm: React.FC<Props> = ({ section, data, onChange }) => {
       );
     }
 
-    // ✅ Array of Objects
+    // Array of objects (like dialers or providers)
     if (
       Array.isArray(value) &&
       value.length > 0 &&
-      typeof value[0] === "object" &&
-      !Array.isArray(value[0])
+      typeof value[0] === "object"
     ) {
       return (
-        <div key={fullPath.join(".")} className="mb-4 border-l pl-4">
-          <p className="font-semibold text-gray-700 mb-1">{key.replace(/_/g, " ")}</p>
-          {value.map((item: any, index: number) => (
-            <div key={index} className="mb-3 border p-2 rounded bg-gray-50">
-              {Object.entries(item).map(([subKey, subVal]) =>
-                renderField(subKey, subVal, [...fullPath, index.toString()])
+        <div key={fullPath.join(".")} className="mb-4">
+          <p
+            className="text-sm font-semibold text-gray-700 mb-2 capitalize"
+            title={tooltipText}
+          >
+            {key.replace(/_/g, " ")}
+          </p>
+          {value.map((item, idx) => (
+            <div key={idx} className="pl-3 border-l-4 border-gray-500 mb-2">
+              {Object.entries(item).map(([k, v]) =>
+                renderField(k, v, [...fullPath, idx.toString()])
               )}
             </div>
           ))}
@@ -105,11 +158,14 @@ const SectionForm: React.FC<Props> = ({ section, data, onChange }) => {
       );
     }
 
-    // ✅ Object
+    // Nested object
     if (typeof value === "object" && value !== null) {
       return (
-        <div key={fullPath.join(".")} className="pl-3 border-l mb-3">
-          <p className="text-sm font-semibold mb-1 text-gray-600 capitalize">
+        <div key={fullPath.join(".")} className="pl-3 border-l-4 border-gray-500  mb-3">
+          <p
+            className="text-sm font-semibold mb-1 text-gray-600 capitalize"
+            title={tooltipText}
+          >
             {key.replace(/_/g, " ")}
           </p>
           {Object.entries(value).map(([subKey, subVal]) =>
